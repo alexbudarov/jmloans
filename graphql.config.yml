@@ -1,0 +1,4 @@
+schema: loans-app/src/main/resources/graphql/**/*.graphqls
+include:
+  - frontend/src/**/*.{ts,tsx}
+  - loans-app/src/test/resources/graphql-test/**/*.graphql
