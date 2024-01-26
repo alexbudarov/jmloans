@@ -13,9 +13,16 @@
   </component>
   <component name="AmplicodePersistenceUnitSettings">
     <persistence-units>
-      <persistence-unit moduleName="customers" name="Default" defaultIncludeChangeLogFile="loans-app/src/main/resources/db/changelog.xml">
+      <persistence-unit moduleName="customers" name="Default">
         <packages>
           <package value="com.company.loans.customers" />
+        </packages>
+      </persistence-unit>
+      <persistence-unit moduleName="loans-app" name="loans-app" defaultIncludeChangeLogFile="loans-app/src/main/resources/db/changelog.xml">
+        <packages>
+          <package value="com.company.loans.app" />
+          <package value="com.company.loans.customers" />
+          <package value="com.company.loans.app.domain" />
         </packages>
       </persistence-unit>
       <persistence-unit moduleName="loans-app" name="Default">
