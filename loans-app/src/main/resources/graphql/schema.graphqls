@@ -10,11 +10,13 @@ type Query {
     userPermissions: [String] # a system query to security roles for an authenticated user
     customerList(filter: CustomerFilterInput, sort: [CustomerOrderByInput], page: OffsetPageInput): CustomerResultPage!
     customer(id: ID!): Customer!
+    risk(loan: LoanInput): Float!
 }
 
 type Mutation {
     deleteCustomer(id: ID!): Void
     updateCustomer(input: CustomerInput!): Customer!
+    updateLoan(input: LoanInput!): Loan
 }
 
 "Contains information about user"
@@ -35,6 +37,12 @@ type CustomerResultPage {
     totalElements: Long!
 }
 
+type Loan {
+    id: ID
+    customer: Customer
+    amount: BigDecimal
+}
+
 enum CustomerOrderByProperty {
     ID
     NAME
@@ -53,4 +61,10 @@ input CustomerInput {
 input CustomerOrderByInput {
     property: CustomerOrderByProperty
     direction: SortDirection
+}
+
+input LoanInput {
+    id: ID
+    customer: CustomerInput
+    amount: BigDecimal
 }

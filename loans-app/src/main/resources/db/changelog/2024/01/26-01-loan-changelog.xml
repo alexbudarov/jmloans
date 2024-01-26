@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1706261588283-1" author="ARDOR PC (generated)">
+        <createTable tableName="loan">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_loan"/>
+            </column>
+            <column name="customer_id" type="BIGINT"/>
+            <column name="amount" type="DECIMAL(19, 2)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1706261588283-2" author="ARDOR PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="loan" constraintName="FK_LOAN_ON_CUSTOMER"
+                                 referencedColumnNames="id" referencedTableName="customer"/>
+    </changeSet>
+
+</databaseChangeLog>
