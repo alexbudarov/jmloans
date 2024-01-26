@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AmplicodePersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit moduleName="customers" name="Default">
+        <packages>
+          <package value="com.company.loans.customers" />
+        </packages>
+      </persistence-unit>
+      <persistence-unit moduleName="loans-app" name="Default">
+        <packages>
+          <package value="com.company.loans.app" />
+        </packages>
+      </persistence-unit>
+    </persistence-units>
+  </component>
   <component name="AmplicodeProjectState">
     <option name="version" value="0.1" />
   </component>
