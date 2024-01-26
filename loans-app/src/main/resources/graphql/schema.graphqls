@@ -11,6 +11,7 @@ type Query {
     customerList(filter: CustomerFilterInput, sort: [CustomerOrderByInput], page: OffsetPageInput): CustomerResultPage!
     customer(id: ID!): Customer!
     risk(loan: LoanInput): Float!
+    loanList: [Loan]!
 }
 
 type Mutation {

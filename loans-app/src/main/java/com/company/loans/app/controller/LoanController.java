@@ -11,6 +11,8 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 @Controller
 public class LoanController {
 
@@ -43,9 +45,15 @@ public class LoanController {
 
     @MutationMapping(name = "updateLoan")
     public Loan save(@Argument @NonNull Loan input) {
-        if (getRisk(input) > 100) {
+        if (getRisk(input) > 1000) {
             return null;
         }
         return loanRepository.save(input);
+    }
+
+    @NonNull
+    @QueryMapping(name = "loanList")
+    public List<Loan> findAll() {
+        return loanRepository.findAll();
     }
 }
