@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AmplicodeDatabaseMigrationSettings">
+    <database-infos>
+      <database-info>
+        <option name="enabled" value="true" />
+        <dbms-id>h2</dbms-id>
+      </database-info>
+    </database-infos>
+  </component>
+  <component name="AmplicodeJpaPluginProjectSettings">
+    <option name="lastSelectedLanguage" value="Java" />
+  </component>
   <component name="AmplicodePersistenceUnitSettings">
     <persistence-units>
-      <persistence-unit moduleName="customers" name="Default">
+      <persistence-unit moduleName="customers" name="Default" defaultIncludeChangeLogFile="loans-app/src/main/resources/db/changelog.xml">
         <packages>
           <package value="com.company.loans.customers" />
         </packages>
@@ -15,6 +26,15 @@
     </persistence-units>
   </component>
   <component name="AmplicodeProjectState">
+    <option name="data">
+      <map>
+        <entry key="Diff">
+          <value>
+            <Object />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="version" value="0.1" />
   </component>
   <component name="GraphQlScalarTypes" initialized="true">

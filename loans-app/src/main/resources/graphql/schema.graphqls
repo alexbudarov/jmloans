@@ -1,5 +1,6 @@
 schema {
     query: Query
+    mutation: Mutation
 }
 
 "Query root"
@@ -7,6 +8,13 @@ type Query {
     checkAuthenticated: Void # a system query to check whether a user is authenticated or not. If not, GraphQL error is returned.
     userInfo: UserInfo # a system query to get an authenticated user details
     userPermissions: [String] # a system query to security roles for an authenticated user
+    customerList(filter: CustomerFilterInput, sort: [CustomerOrderByInput], page: OffsetPageInput): CustomerResultPage!
+    customer(id: ID!): Customer!
+}
+
+type Mutation {
+    deleteCustomer(id: ID!): Void
+    updateCustomer(input: CustomerInput!): Customer!
 }
 
 "Contains information about user"
@@ -14,4 +22,35 @@ type UserInfo {
     id: String! # user identifier
     fullName: String # user display name, e.g. full name or username
     avatar: String # user's profile picture as URL or Base64 string
+}
+
+type Customer {
+    id: ID
+    name: String
+    telephone: String
+}
+
+type CustomerResultPage {
+    content: [Customer]
+    totalElements: Long!
+}
+
+enum CustomerOrderByProperty {
+    ID
+    NAME
+}
+
+input CustomerFilterInput {
+    name: String
+}
+
+input CustomerInput {
+    id: ID
+    name: String
+    telephone: String @digits(integer: 11, fraction: 0)
+}
+
+input CustomerOrderByInput {
+    property: CustomerOrderByProperty
+    direction: SortDirection
 }
